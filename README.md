@@ -22,8 +22,10 @@ fork this repo,  then copy and edit this repo's AX6.config
 to be your own ./config/xiaomi_ax6-stock.config:  
 https://github.com/TerryLip/AX6NSS
 
-Mine may not match your desire.
+Mine may not match your desire.  
+I had also encountered curl 55 errors with the firemware I compiled and had no idea what was going on.  
+Stripped too much?
 
-If you want a regularly auto-build,  
+If you want a regular auto-build,  
 check and analyze ./scripts/prepare.sh and ./.github/workflows/build-firmware.yml .  
 (I was intend to do that but got pretty much lazy so.)
