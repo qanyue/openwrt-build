@@ -39,6 +39,9 @@ jobs:
     
     - name: Checkout
       uses: actions/checkout@main
+
+    - name: Check disk space
+      run: df -h
     
     - name: Init build dependencies
       env:
