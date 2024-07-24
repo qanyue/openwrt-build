@@ -1,4 +1,4 @@
-name: auto_compile_AX6
+name: auto_compile_AX3600
 
 on:
   repository_dispatch:
