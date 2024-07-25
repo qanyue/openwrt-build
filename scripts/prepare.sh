@@ -63,6 +63,17 @@ sed -i 's/192.168.1.1/192.168.31.1/g' package/base-files/files/bin/config_genera
 # 修改连接数
 sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=65535' package/base-files/files/etc/sysctl.conf
 
+#wifi默认设置
+mkdir -p files/etc/uci-defaults
+cat << "EOF" > files/etc/uci-defaults/wifi_config
+uci set wireless.@wifi-device[0].disabled="0"
+uci set wireless.@wifi-iface[0].disabled="0"
+uci set wireless.@wifi-iface[0].ssid="OpenWrt"
+uci set wireless.@wifi-iface[0].key="password"
+uci set wireless.@wifi-iface[0].encryption="psk2"
+uci commit wireless
+EOF
+
 # config file
 cp ../config/xiaomi_ax3600-stock.config .config
 make defconfig
