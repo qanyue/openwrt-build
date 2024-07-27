@@ -36,6 +36,16 @@ sed -i 's/..\/..\/luci.mk/$(TOPDIR)\/feeds\/luci\/luci.mk/g' package/new/luci-ap
 # rm -rf temp/luci/applications/luci-app-vlmcsd package/new/luci-app-vlmcsd
 # rm -rf temp/packages/net/vlmcsd package/new/vlmcsd
 
+
+# 删除&替换immortal面板及部分冲突默认软件
+rm -rf feeds/luci/modules/luci-base
+rm -rf feeds/luci/modules/luci-mod-status
+rm -rf feeds/packages/utils/coremark
+rm -rf feeds/packages/net/v2ray-geodata
+svn export https://github.com/immortalwrt/luci/branches/master/modules/luci-base feeds/luci/modules/luci-base
+svn export https://github.com/immortalwrt/luci/branches/master/modules/luci-mod-status feeds/luci/modules/luci-mod-status
+
+
 # AutoCore
 mv temp/immortalwrt/package/emortal/autocore package/new/autocore
 sed -i 's/"getTempInfo" /"getTempInfo", "getCPUBench", "getCPUUsage" /g' package/new/autocore/files/luci-mod-status-autocore.json
